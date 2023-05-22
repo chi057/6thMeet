@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace _6thMeet
 {
@@ -23,6 +24,32 @@ namespace _6thMeet
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.Filter = "純文字資料 (*.txt)|*.txt|All files (*.*)|*.*";
+            if (dlg.ShowDialog() == true)
+            {
+                FileStream fileStream = new FileStream(dlg.FileName, FileMode.Create);
+                TextRange range = new TextRange(RtbText.Document.ContentStart, RtbText.Document.ContentEnd);
+                range.Save(fileStream, DataFormats.Text);
+                fileStream.Close();
+            }
+        }
+
+        private void BtnOpen_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Filter = "純文字資料 (*.txt)|*.txt|All files (*.*)|*.*";
+            if (dlg.ShowDialog() == true)
+            {
+                FileStream fileStream = new FileStream(dlg.FileName, FileMode.Open);
+                TextRange range = new TextRange(RtbText.Document.ContentStart, RtbText.Document.ContentEnd);
+                range.Load(fileStream, DataFormats.Text);
+                fileStream.Close();
+            }
         }
     }
 }
