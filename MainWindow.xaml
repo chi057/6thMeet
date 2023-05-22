@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF2168DF"/>
+                <GradientStop Color="White" Offset="0.994"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="BtnOpen" Content="開啟檔案" HorizontalAlignment="Center" Height="47" Margin="19,26,666.6,347" VerticalAlignment="Center" Width="108" FontSize="16" Background="White"/>
+        <Button x:Name="BtnSave" Content="存檔" HorizontalAlignment="Center" Height="47" Margin="132,26,553.6,347" VerticalAlignment="Center" Width="108" FontSize="16" Background="White"/>
+        <RichTextBox x:Name="RtbText" HorizontalAlignment="Left" Height="323" Margin="19,87,0,0" VerticalAlignment="Top" Width="756" FontSize="14">
+            <FlowDocument/>
+        </RichTextBox>
+
     </Grid>
 </Window>
