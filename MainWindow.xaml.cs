@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Microsoft.Win32;
 
 namespace _6thMeet
 {
@@ -28,7 +29,7 @@ namespace _6thMeet
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "純文字資料 (*.txt)|*.txt|All files (*.*)|*.*";
             if (dlg.ShowDialog() == true)
             {
@@ -41,7 +42,7 @@ namespace _6thMeet
 
         private void BtnOpen_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "純文字資料 (*.txt)|*.txt|All files (*.*)|*.*";
             if (dlg.ShowDialog() == true)
             {
